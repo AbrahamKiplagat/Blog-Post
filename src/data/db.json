@@ -1,0 +1,21 @@
+ {"blogs":[
+  {
+    "title": "programing",
+    "body": "Beginer guide to programing",
+    "author": "Edwin",
+    "id": 1
+  },
+  {
+    "title": "javascript",
+    "body": "Learning axios and fetch",
+    "author": "Kiplah",
+    "id": 2
+  },
+  {
+    "title": "React framework",
+    "body": "practice consistently programing",
+    "author": "Collins",
+    "id": 3
+  }
+ ]
+}
