@@ -1,21 +1,34 @@
- {"blogs":[
-  {
-    "title": "programing",
-    "body": "Beginer guide to programing",
-    "author": "Edwin",
-    "id": 1
-  },
-  {
-    "title": "javascript",
-    "body": "Learning axios and fetch",
-    "author": "Kiplah",
-    "id": 2
-  },
-  {
-    "title": "React framework",
-    "body": "practice consistently programing",
-    "author": "Collins",
-    "id": 3
-  }
- ]
+{
+  "blogs": [
+    {
+      "title": "programing",
+      "body": "Beginer guide to programing",
+      "author": "Edwin",
+      "id": 1
+    },
+    {
+      "title": "javascript",
+      "body": "Learning axios and fetch",
+      "author": "Kiplah",
+      "id": 2
+    },
+    {
+      "title": "React framework",
+      "body": "practice consistently programing",
+      "author": "Collins",
+      "id": 3
+    },
+    {
+      "title": "java",
+      "author": "John Doe",
+      "body": "In this course we will learn...",
+      "id": 4
+    },
+    {
+      "title": "Olimpics",
+      "author": "Wanyonyi Rudisha",
+      "body": "To practice olimpics you will need to practice daily",
+      "id": 5
+    }
+  ]
 }

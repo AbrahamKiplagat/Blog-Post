@@ -1,84 +1,73 @@
 import React, { useState } from "react";
-import "./Create.css"
+import "./Create.css";
+import { Button, Form } from "react-bootstrap";
+import axios from "axios";
 
-const Create = ({ addBlog }) => {
-  const [formData, setFormData] = useState({
-    inputTitle: "",
-    inputAuthor: "", // Change to inputAuthor for consistency
-    name: "",
-    inputBody: "",
+const Create = () => {
+  const [data, setData] = useState({
+    title: "",
+    author: "",
+    body: "",
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setData((prev) => {
+      return { ...prev, [name]: value };
+    });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Create a new blog object with the form data
-    const newBlog = {
-      title: formData.inputTitle,
-      body: formData.inputBody,
-      author: formData.inputAuthor, // Change to author for consistency
-      id: Date.now(), // Generate a unique ID (you can use a better method)
-    };
-    // Call the addBlog function passed from Home component to add the new blog
-    addBlog(newBlog);
-    // Reset the form fields
-    setFormData({
-      inputTitle: "",
-      inputAuthor: "",
-      name: "",
-      inputBody: "",
-    });
+    axios
+      .post("http://localhost:4001/blogs", data)
+      .then((res) => {
+        alert("new blog added");
+      })
+      .catch((err) => console.log(err.message));
   };
 
   return (
-    <form id="myForm" onSubmit={handleSubmit}>
-      <h1>Input Form</h1>
-      <label htmlFor="inputTitle">Title</label>
-      <input
-        type="text"
-        id="inputTitle"
-        name="inputTitle"
-        placeholder="Enter the title"
-        value={formData.inputTitle}
-        onChange={handleChange}
-      />
-      <br />
-      <label htmlFor="inputAuthor">Author</label>
-      <input
-        type="text"
-        id="inputAuthor"
-        name="inputAuthor"
-        placeholder="Enter the name of the Author"
-        value={formData.inputAuthor}
-        onChange={handleChange}
-      />
-      <br />
-      <label htmlFor="name">Your Name</label>
-      <input
-        type="name"
-        id="name"
-        name="name"
-        placeholder="Enter your name"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <br />
-      <label htmlFor="inputBody">Body</label>
-      <input
-        type="text"
-        id="inputBody"
-        name="inputBody"
-        placeholder="Enter the Body"
-        value={formData.inputBody}
-        onChange={handleChange}
-      />
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <h5 className="text-danger mb-3">Add new blog:</h5>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Title:</Form.Label>
+          <Form.Control
+            type="text"
+            name="title"
+            onChange={handleChange}
+            placeholder="enter the title"
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Author:</Form.Label>
+          <Form.Control
+            type="text"
+            name="author"
+            onChange={handleChange}
+            placeholder="enter author"
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Body:</Form.Label>
+          <Form.Control
+            as="textarea"
+            name="body"
+            rows={3}
+            onChange={handleChange}
+            placeholder="enter content of body"
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit" className="mt-3">
+          save blog
+        </Button>
+      </Form>
+      <p>{data.title}</p>
+      <p>{data.author}</p>
+      <p>{data.body}</p>
+    </div>
   );
 };
 

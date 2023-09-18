@@ -4,8 +4,8 @@ import Home from './Home';
 import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Create from './Components/create';
 import About from './Components/About'
+import Create from './Components/Create';
 
 function App() {
   return (
