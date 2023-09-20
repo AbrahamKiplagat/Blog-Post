@@ -1,13 +1,19 @@
-import React from "react";
+// import React from "react";
+import { Link } from "react-router-dom";
 
 const BlogList = ({ blogs, title }) => {
   return (
     <div className="blog-list">
-      <h2 className="blog-list-title">{title}</h2>
-      {blogs.map((data) => (
-        <div className="blog-preview" key={data.id}>
-          <h2>{data.title}</h2>
-          <p>Done by: {data.author}</p>
+      <h1 className="blog-list-title">{title}</h1>
+      {blogs.map((blog) => (
+        <div className="blog-preview" key={blog.id}>
+          <Link
+            to={`/BlogDetails/${blog.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <h2>{blog.title}</h2>
+            <p>Done by: {blog.author}</p>
+          </Link>
         </div>
       ))}
     </div>

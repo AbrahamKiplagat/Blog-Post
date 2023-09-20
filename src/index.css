@@ -1,4 +1,6 @@
-.navbar{
+@import url("https://fonts.cdnfonts.com/css/ptarmigan");
+
+.navbar {
   padding: 20px;
   display: flex;
   align-items: center;
@@ -6,19 +8,19 @@
   margin: 0 auto;
   border-bottom: 1px solid#f2f2f2;
 }
-.navbar h2{
+.navbar h2 {
   color: blueviolet;
 }
-.navbar .links{
+.navbar .links {
   margin-left: auto;
 }
-.navbar a{
+.navbar a {
   margin-left: auto;
 }
-.navbar a:hover{
+.navbar a:hover {
   color: blueviolet;
 }
-.content{
+.content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
@@ -31,13 +33,36 @@
 .links :hover {
   text-decoration: underline;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box-shadow on hover */
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
-
-
-.blog-list h2{
+.blog-list h2 {
   color: blueviolet;
 }
-.blog-list-title{
+.blog-list-title {
   text-decoration: underline;
+  font-family: "Ptarmigan", sans-serif;
+  color: purple;
+}
+.blog-preview {
+  cursor: pointer;
+  background-color: snow;
+  border: 2px solid purple;
+  border-radius: 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ transform: scale(1);
+}
+.blog-preview:hover {
+  box-shadow: 0 0 10px 5px rgba(128, 0, 128, 0.5); /* Purple glowing effect on hover */
+  transform: scale(1.05); /* Scale up by 5% on hover */
+  background-color: lavender; /* Change background color on hover */
+  border-color: fuchsia; /* Change border color on hover */
+}
+
+.blog-preview h2,
+.blog-preview p {
+  text-decoration: none;
 }

@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Create from "./Components/Create";
+import BlogDetails from "./Components/BlogDetails";
+import NotFound from "./Components/NotFound";
 
 function App() {
   return (
@@ -19,6 +21,12 @@ function App() {
             </Route>
             <Route path="/create">
               <Create />
+            </Route>
+            <Route exact path="/BlogDetails/:id"> {/* Capture the blog ID */}
+              <BlogDetails/>
+            </Route>
+            <Route exact path="*">
+              <NotFound/>
             </Route>
           </Switch>
         </div>
